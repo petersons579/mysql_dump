@@ -52,8 +52,8 @@ if (empty($BD_HOST)) {
     }
 
     foreach($tables as $table) {
-        $exec_string = $comand . $table . ' > ' . $folder_name . '\\' . $table . '.sql';
-        exec($exec_string);
+        $exec_string = $comand . $table . ' > "' . $folder_name . '\\' . $table . '.sql"';
+        shell_exec($exec_string);
     }
 
     header("location: index.php?success=Backup gerado com sucesso.");
