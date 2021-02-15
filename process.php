@@ -32,9 +32,10 @@ if (empty($BD_HOST)) {
 
     $arquivo = fopen($path_file,'r');
     $tables = array();
+    $array_aux = array();
 
     while (!feof($arquivo)) {
-        $tables = explode(',', fgets($arquivo));
+        $tables[] = explode(',', trim(fgets($arquivo)));
     }
 
     $today = new DateTime('now', new DateTimeZone('America/Sao_Paulo'));
@@ -52,9 +53,18 @@ if (empty($BD_HOST)) {
     }
 
     foreach($tables as $table) {
-        $exec_string = $comand . $table . ' > "' . $folder_name . '\\' . $table . '.sql"';
-        shell_exec($exec_string);
-    }
+        if (count($table) > 1) {
+            $tbl = trim($table[0]);
+
+            $exec_string = $comand . $tbl . ' > "' . $folder_name . '\\' . $tbl . '.sql"';
+            shell_exec($exec_string);
+        } elseif (count($table) == 1) {
+            $tbl = trim($table[0]);
+
+            $exec_string = $comand . $tbl . ' > "' . $folder_name . '\\' . $tbl . '.sql"';
+            shell_exec($exec_string);
+        }
+    };
 
     header("location: index.php?success=Backup gerado com sucesso.");
 }

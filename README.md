@@ -6,7 +6,7 @@
   - Instale o xampp ou o mysql em seu computador (Sistema feito com base no xampp)
   - Instale o xampp no disco local C
   - Ainda não testado com a instalção do mysql sem o xampp
-  - Para gerar o backup e necessário ter um arquivo txt com o nome das tabelas seprando por virgula e sem espaçamento e quebra de linha entre elas.
+  - Para gerar o backup e necessário ter um arquivo txt com o nome das tabelas separadas por virgula e uma abaixo da outra.
   - Informe corretamente os caminhos do arquivo de tabelas e da pasta onde serão salvos os backups
   - Por padrão sera gerado a cada backup um pasta com o nome no format d-m-Y-manha ou d-m-Y-tarde. 
 
